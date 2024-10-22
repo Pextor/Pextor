@@ -10,7 +10,7 @@
     <p id="ip">로딩 중...</p>
 
     <script>
-        fetch('https://api.ipify.org?format=json')
+        fetch('https://api.myip.com')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('ip').innerText = `내 아이피: ${data.ip}`;
