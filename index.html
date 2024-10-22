@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>내 아이피 주소</h1>
-    <p id="ip"></p>
+    <p id="ip">로딩 중...</p>
 
     <script>
         fetch('https://api.ipify.org?format=json')
@@ -16,6 +16,7 @@
                 document.getElementById('ip').innerText = `내 아이피: ${data.ip}`;
             })
             .catch(err => {
+                document.getElementById('ip').innerText = '아이피를 가져오는 데 오류가 발생했습니다.';
                 console.error('아이피를 가져오는 데 오류가 발생했습니다:', err);
             });
     </script>
