@@ -3,26 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index of /</title>
-    <style>
-        body {
-            background-color: #FFFFFF;
-            color: #000000;
-            font-family: 'Courier New', Courier, monospace;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            font-size: 72px;
-        }
-        img {
-            max-width: 200px; /* 로고 크기 */
-            height: auto;
-        }
-    </style>
+    <title>내 아이피 확인하기</title>
 </head>
 <body>
-    <img src="로고.png" alt="사이트 로고">
-    <h1>Index of /</h1>
+    <h1>내 아이피 주소</h1>
+    <p id="ip"></p>
+
+    <script>
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip').innerText = `내 아이피: ${data.ip}`;
+            })
+            .catch(err => {
+                console.error('아이피를 가져오는 데 오류가 발생했습니다:', err);
+            });
+    </script>
 </body>
 </html>
